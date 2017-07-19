@@ -4,7 +4,9 @@ class PostBody extends Component {
   render() {
     return (
         <div className="post-body">
-  				PostBody
+          <div className="comment-num num">
+            {this.props.comments.length}
+          </div>
   			</div>
 
     )
