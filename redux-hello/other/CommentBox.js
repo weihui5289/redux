@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import store from "./store"
-import {connect} from "react-redux"
+
 class CommentBox extends Component {
 
   handleSubmit=(e)=>{
     e.preventDefault()
     // console.log(this.value.value)
     let newComment=this.value.value
-
-    store.dispatch({type:"ADD_COMMENT",tianjia:newComment})
+    this.props.addComment(newComment)
     // this.value.value=""
     this.word.reset()
   }
@@ -30,7 +28,5 @@ class CommentBox extends Component {
     )
   }
 }
-const mapStateToProps=(state)=>({
-  comments:state
-})
-export default connect(mapStateToProps)(CommentBox)
+
+export default CommentBox

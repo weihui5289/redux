@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux"
+
 class PostBody extends Component {
   render() {
     return (
@@ -12,8 +12,5 @@ class PostBody extends Component {
     )
   }
 }
-const mapStateToProps=(state)=>({
-    comments:state
-})
 
-export default connect(mapStateToProps)(PostBody)
+export default PostBody
