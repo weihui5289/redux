@@ -1,12 +1,22 @@
 let comments=
 [
-  "第一条","第二条"
+  {
+    content:"第一条",
+    postId:"1"
+  },
+  {
+    content:"666",
+    postId:"1"
+  },
+  {
+    content:"第二条",
+    postId:"2"
+  }
 ]
 export default function commentReducer(state=comments,action){
-  console.log(action)
   switch(action.type){
     case "ADD_COMMENT":
-      return[...state,action.tianjia]
+      return[...state,{content:action.tianjia,postId:action.Id}]
       default:return state
   }
 
