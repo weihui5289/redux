@@ -7,11 +7,13 @@ import {
 } from 'react-router-dom'
 import HomePage from "./HomePage"
 import SignupPage from "./SignupPage"
-import Header from "./Header"
 import {Provider} from "react-redux"
 import store from "./redux/store"
 import axios from "axios"
-
+import 'antd/dist/antd.css';
+import LoginPage from "./LoginPage"
+import Slider from "./Slider"
+import Show from "./Show"
 class App extends Component {
   //读取登陆的个人的用户名字和信息
   componentDidMount(){
@@ -29,10 +31,16 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div>
-            <Header />
+            <Route render={({location})=>{
+              return location.pathname!=="/"?
+              (<Slider />):null
+            }} />
             <Switch>
               <Route path="/" exact component={HomePage}></Route>
               <Route path="/signup" component={SignupPage}></Route>
+              <Route path="/login" component={LoginPage}></Route>
+              <Route path="/home" component={Show}></Route>
+
             </Switch>
           </div>
         </BrowserRouter>

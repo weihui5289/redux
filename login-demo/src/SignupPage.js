@@ -1,12 +1,11 @@
 import React from "react"
 import axios from "axios"
 import store from "./redux/store"
+import {Link} from "react-router-dom"
+
 
 class SignupPage extends React.Component{
-  style={
-    "width":"300px",
-    "margin":"20px auto"
-  }
+
   signUp=(e)=>{
     e.preventDefault()
     let username=this.usernameInput.value
@@ -32,29 +31,36 @@ class SignupPage extends React.Component{
   }
 
 
-
   render(){
     return(
-      <div style={this.style}>
-        <h1>注册</h1>
-        <form ref={xxx=>this.signupForm=xxx} onSubmit={this.signUp}>
-          <div>
-            <input ref={xxx=>this.usernameInput=xxx} type="text" placeholder="用户名" />
+      <div className="sp-wrap">
+        <div className="sp-main">
+          <div className="spmain-top">
+            <span>signup</span>
           </div>
 
-          <div>
-            <input ref={value=>this.passwordInput=value} type="password" placeholder="请输入密码" />
+          <div className="spmain-mid">
+            <h1>注册</h1>
+            <p>链接一个个小而确定的幸福</p>
           </div>
 
-          <div>
-            <input type="password" placeholder="在输入一次" />
-          </div>
+            <div className="spmain-bottom">
+                <form ref={xxx=>this.signupForm=xxx} onSubmit={this.signUp}>
+                  <div className="biaodan">
+                    <input ref={xxx=>this.usernameInput=xxx} type="text" placeholder="用户名" />
+                    <input type="text" placeholder="邮箱" />
+                    <input ref={value=>this.passwordInput=value} type="password" placeholder="请输入密码" />
+                    <input type="password" placeholder="在输入一次" />
+                  </div>
 
-          <div>
-            <input type="submit"  />
-          </div>
+                  <div>
+                    <button>注册</button>
+                    <Link to="/login">已有账号？&nbsp;&nbsp;&nbsp;点此登陆</Link>
+                  </div>
 
-        </form>
+                </form>
+            </div>
+        </div>
       </div>
     )
   }
